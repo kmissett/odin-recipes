@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200;300;400&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-primary: hsl(120, 25%, 5%);
+    --color-bg: hsl(120, 25%, 95%);
+    --color-accent: hsl(120, 70%, 40%);
+    
+    --font-titles: "Oswald", sans-serif;
+    --font-primary: "EB Garamond", serif;
+    --font-size: clamp(1.25rem, 1rem + 3vw, 1.75rem);
+    --font-size-sm: calc(0.8 * var(--font-size));
+    --font-size-lg: calc(1.25 * var(--font-size));
+    --line-height: 1.5;
+
+}
+
+body {
+    width: 100%;
+    background-color: var(--color-bg);
+    font-family: var(--font-primary);
+    font-size: var(--font-size);
+    color: var(--color-primary);
+    line-height: var(--line-height);
+}
+
+header, main, footer {
+    margin-inline: auto;
+    padding-inline: 1rem;
+    width: 100%;
+    max-width: 70ch;
+    margin-block-end: 1em;
+}
+
+h1,h2,h3 {
+    font-family: var(--font-titles);
+    border-block-end: 0.25rem solid var(--color-accent);
+    margin-block-end: 1rem;
+}
+
+h3 {display: inline-block;}
+
+a {
+    color: currentColor; 
+    text-decoration: none;
+    font-weight: 600;
+    --link-line-width: 0.1em;
+    line-height: calc(1.1*var(--line-height));
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    background-repeat: no-repeat;
+    background-size: 100% var(--link-line-width);
+    background-position: bottom;
+    transition: background-size 0.15s ease-out;
+}
+
+a:hover, a:focus {
+    background-size: 100% calc(100% - 0.25 * var(--link-line-width));
+    text-decoration: none;
+}
+
+/* If a user sets a high contrast mode, background images disappear */
+@media (forced-colors: active) {
+    a {text-decoration: underline;}
+    a:hover, a:focus {outline: 2px solid currentColor; outline-offset: 0.1em;}}
+
+ul, ol {
+    list-style-position: inside;
+    margin-block-end: 1em;
+    
+}
+
+ul li { 
+    font-size: var(--font-size-sm);
+    margin-block-end: 0.25em;
+    line-height: 1;
+ }
+
+ol li { margin-block-end: 1em; }
+
+img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+}
